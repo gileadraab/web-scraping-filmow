@@ -1,0 +1,8 @@
+bs4
+requests
+html5lib
+SQLAlchemy
+psycopg2
+selenium
+webdriver-manager
+python-dotenv
