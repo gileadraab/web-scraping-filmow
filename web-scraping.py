@@ -8,6 +8,7 @@ from business import (
     format_comments_info,
     format_comment_info,
     format_user_info,
+    format_rating_info,
 )
 from sqlalchemy.orm import Session
 import os
@@ -38,9 +39,15 @@ def add_movie_to_DB():
                     user = format_user_info(comment_info)
                     session.merge(user)
                     session.commit()
+
                     comment = format_comment_info(comment_info, movie)
                     session.merge(comment)
                     session.commit()
+
+                    rating = format_rating_info(comment_info, movie)
+                    session.merge(rating)
+                    session.commit()
+
             shutil.move(file_path, MOVIES_ADDED)
             print(f"{os.path.basename(file)} moved to MOVIES_ADDED")
 
